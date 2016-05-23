@@ -1,5 +1,7 @@
 import { List, Map } from 'immutable';
 
+export const INITIAL_STATE = Map();
+
 export function setEntries(state, entries) {
   return state.set('entries', List(entries));
 }
@@ -37,9 +39,9 @@ export function next(state) {
   }
 }
 
-export function vote(state, entry) {
-  return state.updateIn(
-    ['vote', 'tally', entry], //path to navigate
+export function vote(voteState, entry) {
+  return voteState.updateIn(
+    ['tally', entry], //path to navigate
     0, //initial value if none
     tally => tally + 1 //take value at path and return + 1
   );

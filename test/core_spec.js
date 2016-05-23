@@ -108,37 +108,29 @@ describe('application logic', () => {
 
     it('creates a tally', () => {
       const state = fromJS({
-        vote: {
-          pair: ['Dogs', 'Cats']
-        }
+        pair: ['Dogs', 'Cats']
       });
       const nextState = vote(state, 'Dogs');
       expect(nextState).to.equal(fromJS({
-        vote: {
-          pair: ['Dogs', 'Cats'],
-          tally: {
-            'Dogs': 1
-          }
+        pair: ['Dogs', 'Cats'],
+        tally: {
+          'Dogs': 1
         }
       }));
     });
 
     it('adds to tally', () => {
       const state = fromJS({
-        vote: {
-          pair: ['Dogs', 'Cats'],
-          tally: {
-            'Dogs': 1
-          }
+        pair: ['Dogs', 'Cats'],
+        tally: {
+          'Dogs': 1
         }
       });
       const nextState = vote(state, 'Dogs');
       expect(nextState).to.equal(fromJS({
-        vote: {
-          pair: ['Dogs', 'Cats'],
-          tally: {
-            'Dogs': 2
-          }
+        pair: ['Dogs', 'Cats'],
+        tally: {
+          'Dogs': 2
         }
       }));
     });
